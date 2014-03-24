@@ -3,6 +3,8 @@
 
   List YouTube channel playlist items
 
+  [![Build Status](https://travis-ci.org/monstercat/yt-playlist.png)](https://travis-ci.org/monstercat/yt-playlist)
+
 ## Installation
 
   Install with npm
