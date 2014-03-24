@@ -28,7 +28,8 @@ oauth.credentials = {
 gapi.discover('youtube', 'v3').execute(function(err, client){
   var videos = require('yt-playlist')(client);
   var opts = { playlist: 'uploads', oauth: oauth };
-  videos("UCeDAMjAoztnS1WYGLzB2P_w", opts, function(err, vids){
+  var channelId = "UCeDAMjAoztnS1WYGLzB2P_w";
+  videos(channelId, opts, function(err, vids){
     // playlist videos
   });
 });
