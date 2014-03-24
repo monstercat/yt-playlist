@@ -6,11 +6,18 @@ var OAuth2 = gapi.auth.OAuth2;
 
 var channelId = process.env.CHANNEL_ID || "UCeDAMjAoztnS1WYGLzB2P_w";
 
-var oauth = new OAuth2(process.env.GAPI_CLIENT_ID,
-                       process.env.GAPI_CLIENT_SECRET);
+var clientId = process.env.GAPI_CLIENT_ID;
+var clientSecret = process.env.GAPI_CLIENT_SECRET;
+var accessToken = process.env.GAPI_ACCESS_TOKEN;
+var refreshToken = process.env.GAPI_REFRESH_TOKEN;
+
+debug("cid %s sec %s acc %s ref %s",
+      !!clientId, !!clientSecret, !!accessToken, !!refreshToken);
+
+var oauth = new OAuth2(clientId, clientSecret);
 oauth.credentials = {
-  access_token: process.env.GAPI_ACCESS_TOKEN,
-  refresh_token: process.env.GAPI_REFRESH_TOKEN
+  access_token: accessToken,
+  refresh_token: refreshToken
 };
 
 describe('playlist query', function(){
