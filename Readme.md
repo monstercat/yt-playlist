@@ -13,12 +13,13 @@
 
 ```js
 var gapi = require('googleapis');
+var OAuth2 = gapi.auth.OAuth2;
 
 /*
  * oauth is needed to prevent rate limiting
  */
-var oauth = new gapi.OAuthClient(process.env.GAPI_CLIENT_ID,
-                                 process.env.GAPI_CLIENT_SECRET)
+var oauth = new OAuth2(process.env.GAPI_CLIENT_ID,
+                       process.env.GAPI_CLIENT_SECRET)
 oauth.credentials = {
   access_token: process.env.GAPI_ACCESS_TOKEN,
   refresh_token: process.env.GAPI_REFRESH_TOKEN
@@ -28,15 +29,12 @@ gapi.discover('youtube', 'v3').execute(function(err, client){
   var videos = require('yt-playlist')(client);
   var opts = { playlist: 'uploads', oauth: oauth };
   videos("UCeDAMjAoztnS1WYGLzB2P_w", opts, function(err, vids){
+    // playlist videos
   });
 });
 
 
 ```
-
-## API
-
-
 
 ## License
 
